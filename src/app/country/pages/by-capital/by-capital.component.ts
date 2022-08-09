@@ -13,6 +13,8 @@ export class ByCapitalComponent {
   term: string = '';
   isError: boolean = false;
 
+  placeholder: string = 'Search capital...';
+
   constructor(private countryService: CountryService) { }
 
   search(term: string) {

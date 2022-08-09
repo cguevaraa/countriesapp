@@ -14,6 +14,8 @@ export class ByCountryComponent {
   term: string = '';
   isError: boolean = false;
 
+  placeholder: string = 'Search country...';
+
   constructor(private countryService: CountryService) { }
 
   search(term: string) {
