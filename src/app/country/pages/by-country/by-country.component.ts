@@ -11,28 +11,31 @@ export class ByCountryComponent {
 
   countries: Country[] = [];
 
-  term: string = 'hello world';
+  term: string = '';
   isError: boolean = false;
 
   constructor(private countryService: CountryService) { }
 
-  search() {
+  search(term: string) {
 
     this.isError = false;
+    this.term = term;
 
     this.countryService.searchCountry(this.term)
     .subscribe({
       next: (countries) => {
        this.countries = countries;
-       console.log(countries[0]);
       },
       error: (err) => {
-        // console.info(err.status);
         if (err.status === 404) {
           this.isError = true;
           this.countries = [];
         }
       },
     });
+  }
+
+  suggestions(term: string){
+    this.isError = false;
   }
 }

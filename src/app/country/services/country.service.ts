@@ -12,7 +12,6 @@ export class CountryService {
 
   constructor(private http: HttpClient) { }
 
-  // TODO: Set a return type here
   searchCountry(term: string): Observable<Country[]> {
 
     const url: string = `${this.apiUrl}/name/${term}`
