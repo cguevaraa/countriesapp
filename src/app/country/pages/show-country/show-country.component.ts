@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { switchMap, tap } from 'rxjs';
+import { Country } from '../../interfaces/country.interface';
 import { CountryService } from '../../services/country.service';
 
 @Component({
-  selector: 'app-watch-country',
-  templateUrl: './watch-country.component.html',
+  selector: 'app-show-country',
+  templateUrl: './show-country.component.html',
 })
-export class WatchCountryComponent implements OnInit {
+export class ShowCountryComponent implements OnInit {
+
+  country!: Country;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -20,11 +23,13 @@ export class WatchCountryComponent implements OnInit {
       .pipe(
         // With switchMap we can "switch" the Observable for a new one:
         // the one returned by the service
-        switchMap(({id})=> this.countryService.getCountryById(id))
+        switchMap(({id})=> this.countryService.getCountryById(id)),
+        tap(console.log)
       )
       // From here is like any other Observable
       .subscribe(country => {
-        console.log(country);
+        this.country = country[0]
+        console.log(country.name.common)
       })
 
     // Alternative without rxjs' switchMap:
