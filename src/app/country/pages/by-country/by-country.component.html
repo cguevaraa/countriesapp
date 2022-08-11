@@ -1,14 +1,16 @@
-<h2>By Country</h2>
-<hr>
+<div class="contentPage animate__animated animate__fadeIn animate__faster">
+    <h2>Country</h2>
+    <hr>
 
-<div class="row">
+    <div class="row">
 
-    <div class="col">
-        <app-country-input
-        [placeholder]="placeholder"
-            (onEnter)="search($event)"
-            (onDebounce)="suggestions($event)">
-        </app-country-input>
+        <div class="col">
+            <app-country-input
+            [placeholder]="placeholder"
+                (onEnter)="search($event)"
+                (onDebounce)="suggestions($event)">
+            </app-country-input>
+        </div>
     </div>
 
 </div>

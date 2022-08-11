@@ -1,16 +1,18 @@
-<h2>By Capital</h2>
-<hr>
+<div class="contentPage animate__animated animate__fadeIn animate__faster">
+    <h2>Capital</h2>
+    <hr>
 
-<div class="row">
+    <div class="row">
 
-    <div class="col">
-        <app-country-input
-            (onEnter)="search($event)"
-            [placeholder]="placeholder">
-        </app-country-input>
+        <div class="col">
+            <app-country-input
+                (onEnter)="search($event)"
+                [placeholder]="placeholder">
+            </app-country-input>
+        </div>
     </div>
-
 </div>
+
 
 <div *ngIf="isError" 
     class="alert alert-danger p-2 mt-2">
