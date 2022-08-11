@@ -12,3 +12,16 @@
     width: 50px;
     border-radius: 10%;
 }
+
+.suggestion {
+  font-size: small;
+  background-color: rgb(235, 245, 253);
+}
+
+.suggestion:hover {
+  background-color: #a5bfe0;
+}
+
+.suggestions-wrapper {
+  margin: 4px;
+}

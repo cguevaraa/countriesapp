@@ -3,15 +3,25 @@
     <hr>
 
     <div class="row">
-
         <div class="col">
             <app-country-input
             [placeholder]="placeholder"
                 (onEnter)="search($event)"
-                (onDebounce)="suggestions($event)">
+                (onDebounce)="getSuggestions($event)">
             </app-country-input>
         </div>
     </div>
+
+    <ul class="suggestions-wrapper list-group list-group-flush">
+        <li *ngFor="let suggestion of suggestions"
+            class="suggestion list-group-item list-group-item-action">
+            <a class="nav-link" 
+            [routerLink]="['/country', suggestion.cca2]">
+                {{suggestion.name.common}}
+            </a>
+        </li>
+
+    </ul>
 
 </div>
 

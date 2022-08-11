@@ -10,6 +10,7 @@ import { CountryService } from '../../services/country.service';
 export class ByCountryComponent {
 
   countries: Country[] = [];
+  suggestions: Country[] = [];
 
   term: string = '';
   isError: boolean = false;
@@ -20,6 +21,7 @@ export class ByCountryComponent {
 
   search(term: string) {
 
+    this.suggestions = [];
     this.isError = false;
     this.term = term;
 
@@ -37,7 +39,15 @@ export class ByCountryComponent {
     });
   }
 
-  suggestions(term: string){
+  getSuggestions(term: string){
+    console.log('debounce.', term);
     this.isError = false;
+    this.countryService.searchCountry(term)
+      .subscribe({
+        next:  countries => this.suggestions = countries.splice(0,5),
+        error: () => this.suggestions = [],
+        complete: () => {return;}
+      });
+      
   }
 }
