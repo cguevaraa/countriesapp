@@ -1,6 +1,9 @@
 .sidebar {
-    max-width: 200px
-  }
+  height: 100vh;
+  min-height: 100%;
+  min-width: 180px;
+  margin: 10px;
+}
 
 li {
 cursor: pointer;
