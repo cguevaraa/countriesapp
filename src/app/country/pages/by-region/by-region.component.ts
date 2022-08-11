@@ -27,7 +27,10 @@ export class ByRegionComponent {
 
   searchByRegion(region: string): void {
     this.countryService.searchByRegion(region)
-      .subscribe(countries => this.countries = countries)
+      .subscribe((countries) => {
+        this.countries = countries;
+        console.log(countries)
+      }); 
   }
 
 }
